@@ -11,9 +11,6 @@ public class LeadConverter {
                 
                 if (request.accountId != null) {
                     leadConvert.setAccountId(request.accountId);
-                    if (request.accountOwnerId != null) {
-                        leadConvert.setAccountOwnerId(request.accountOwnerId);
-                    }
                 }
                 
                 if (request.contactId != null) {
@@ -22,14 +19,15 @@ public class LeadConverter {
                 
                 if (request.opportunityId != null) {
                     leadConvert.setOpportunityId(request.opportunityId);
-                    if (request.opportunityOwnerId != null) {
-                        leadConvert.setOpportunityOwnerId(request.opportunityOwnerId);
-                    }
                 }
                 
                 if (request.leadStatus != null) {
                     leadConvert.setConvertedStatus(request.leadStatus);
                 }
+                
+                // Set additional options for conversion if needed
+                // For example, setting DoNotCreateOpportunity to true
+                // leadConvert.setDoNotCreateOpportunity(true);
                 
                 leadConverts.add(leadConvert);
             }
@@ -49,16 +47,10 @@ public class LeadConverter {
         public Id accountId;
         
         @InvocableVariable
-        public Id accountOwnerId; // Added field for Account Owner Id
-        
-        @InvocableVariable
         public Id contactId;
         
         @InvocableVariable
         public Id opportunityId;
-        
-        @InvocableVariable
-        public Id opportunityOwnerId; // Added field for Opportunity Owner Id
         
         @InvocableVariable
         public String leadStatus;
